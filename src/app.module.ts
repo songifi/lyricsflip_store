@@ -1,22 +1,25 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import * as Joi from 'joi';
+import { Module } from '@nestjs/common'
+import { ConfigModule, ConfigService } from '@nestjs/config'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import * as Joi from 'joi'
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from './app.controller'
+import { AppService } from './app.service'
 
-import { AuthModule } from './modules/auth/auth.module';
-import { UsersModule } from './modules/users/users.module';
-import { ArtistsModule } from './modules/artists/artists.module';
-import { MusicModule } from './modules/music/music.module';
-import { MerchandiseModule } from './modules/merchandise/merchandise.module';
-import { StreamingModule } from './modules/streaming/streaming.module';
-import { PurchasesModule } from './modules/purchases/purchases.module';
-import { EventsModule } from './modules/events/events.module';
-import { AnalyticsModule } from './modules/analytics/analytics.module';
-import { NotificationsModule } from './modules/notifications/notifications.module';
-import { AdminModule } from './modules/admin/admin.module';
+import { AuthModule } from './modules/auth/auth.module'
+import { UsersModule } from './modules/users/users.module'
+import { ArtistsModule } from './modules/artists/artists.module'
+import { MusicModule } from './modules/music/music.module'
+import { MerchandiseModule } from './modules/merchandise/merchandise.module'
+import { StreamingModule } from './modules/streaming/streaming.module'
+import { PurchasesModule } from './modules/purchases/purchases.module'
+import { EventsModule } from './modules/events/events.module'
+import { AnalyticsModule } from './modules/analytics/analytics.module'
+import { NotificationsModule } from './modules/notifications/notifications.module'
+import { AdminModule } from './modules/admin/admin.module'
+
+import { APP_GUARD, Reflector } from '@nestjs/core'
+import { RolesGuard } from './common/guards/roles.guard'
 
 @Module({
   imports: [
@@ -62,6 +65,13 @@ import { AdminModule } from './modules/admin/admin.module';
     AdminModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [
+    AppService,
+    Reflector,
+    {
+      provide: APP_GUARD,
+      useClass: RolesGuard,
+    },
+  ],
 })
 export class AppModule {}
