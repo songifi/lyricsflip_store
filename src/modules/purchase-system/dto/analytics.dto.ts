@@ -31,3 +31,13 @@ export class TopSellingItemsDto {
   @IsString()
   artistId?: string;
 }
+export class AnalyticsDto {
+  @Type(() => RevenueByTimeframeDto)
+  revenueByTimeframe: RevenueByTimeframeDto;
+
+  @Type(() => ArtistAnalyticsDto)
+  artistAnalytics: ArtistAnalyticsDto;
+
+  @Type(() => TopSellingItemsDto)
+  topSellingItems: TopSellingItemsDto;
+}
