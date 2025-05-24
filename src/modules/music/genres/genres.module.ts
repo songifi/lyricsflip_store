@@ -1,9 +1,17 @@
 import { Module } from '@nestjs/common';
-import { GenresService } from './genres.service';
-import { GenresController } from './genres.controller';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Genre } from './entities/genre.entity';
+import { GenrePopularityHistory } from './entities/genrePopularityHistory.entity';
+import { GenreController } from './controllers/genres.controller';
+import { GenreService } from './providers/genres.service';
+import { GenreSeederService } from './providers/genre-seeder.service';
 
 @Module({
-  controllers: [GenresController],
-  providers: [GenresService],
+  imports: [
+    TypeOrmModule.forFeature([Genre, GenrePopularityHistory]),
+  ],
+  controllers: [GenreController],
+  providers: [GenreService, GenreSeederService],
+  exports: [GenreService, GenreSeederService],
 })
-export class GenresModule {}
+export class GenreModule {}
