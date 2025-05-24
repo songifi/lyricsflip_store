@@ -1,0 +1,23 @@
+
+export enum AlbumGenre {
+  ROCK = 'rock',
+  POP = 'pop',
+  JAZZ = 'jazz',
+  CLASSICAL = 'classical',
+  ELECTRONIC = 'electronic',
+  HIP_HOP = 'hip_hop',
+  COUNTRY = 'country',
+  BLUES = 'blues',
+  FOLK = 'folk',
+  REGGAE = 'reggae',
+  METAL = 'metal',
+  PUNK = 'punk',
+  ALTERNATIVE = 'alternative',
+  INDIE = 'indie',
+  R_AND_B = 'r_and_b',
+  SOUL = 'soul',
+  FUNK = 'funk',
+  DISCO = 'disco',
+  WORLD = 'world',
+  OTHER = 'other',
+}

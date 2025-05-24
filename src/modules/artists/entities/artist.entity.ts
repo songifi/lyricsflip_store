@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm"
 import { Exclude } from "class-transformer"
 import { ArtistRole } from "../enums/artistRole.enum"
 import { VerificationStatus } from "../enums/verificationStatus.enum"
+import { Album } from "src/modules/music/albums/entities/album.entity"
 
 @Entity("artists")
 export class Artist {
@@ -75,6 +76,13 @@ export class Artist {
     soundcloud?: string
     appleMusic?: string
   }
+
+  // Relationships
+    @OneToMany(() => Artist, (artist) => artist.albums, {
+      onDelete: 'CASCADE',
+      nullable: false,
+    })
+    albums: Album;
 
   @Column({ default: false })
   isActive: boolean
