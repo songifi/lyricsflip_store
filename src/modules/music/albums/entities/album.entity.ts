@@ -9,13 +9,13 @@ import {
   UpdateDateColumn,
   Index,
 } from 'typeorm';
-// import { Track } from './track.entity';
 import { AlbumType } from '../enums/albumType.enum';
 import { AlbumStatus } from '../enums/albumStatus.enum';
 import { AlbumGenre } from '../enums/albumGenre.enum';
 import { AlbumCredit } from './albumCredit.entity';
 import { AlbumArtwork } from './albumArtwork.entity';
 import { Artist } from 'src/modules/artists/entities/artist.entity';
+import { Track } from '../../tracks/entities/track.entity';
 
 
 @Entity('albums')
@@ -163,10 +163,10 @@ export class Album {
   @Column('uuid')
   artist_id: string;
 
-//   @OneToMany(() => Track, (track) => track.album, {
-//     cascade: true,
-//   })
-//   tracks: Track[];
+  @OneToMany(() => Track, (track) => track.album, {
+    cascade: true,
+  })
+  tracks: Track[];
 
   @OneToMany(() => AlbumCredit, (credit) => credit.album, {
     cascade: true,
