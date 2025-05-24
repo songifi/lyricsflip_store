@@ -161,6 +161,9 @@ export class Track {
     errors?: string[];
   };
 
+  @OneToMany(() => Video, (video) => video.track)
+  videos: Video[];
+
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date;
 

@@ -24,6 +24,7 @@ import { AdminModule } from './modules/admin/admin.module'
 import { TracksModule } from './modules/music/tracks/tracks.module'
 import appConfig, { databaseConfig } from './config/database.config'
 import { BandsModule } from './modules/bands/bands.module';
+import { VideosModule } from './modules/videos/videos.module';
 
 @Module({
   imports: [
@@ -67,6 +68,7 @@ import { BandsModule } from './modules/bands/bands.module';
     AdminModule,
     TracksModule,
     BandsModule,
+    VideosModule,
   ],
   controllers: [AppController],
   providers: [
