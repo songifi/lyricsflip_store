@@ -37,7 +37,7 @@ export class Genre {
   description?: string;
 
   @Column({ length: 7, nullable: true })
-  colorCode?: string; // Hex color for UI representation
+  colorCode?: string; 
 
   @Column({ type: 'enum', enum: GenreMood, array: true, default: [] })
   moods: GenreMood[];
