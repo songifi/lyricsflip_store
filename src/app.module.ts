@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import * as Joi from 'joi'
+import { APP_GUARD, Reflector } from '@nestjs/core'
+
+import { validationSchema } from './config/validation.schema'
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+
+import { RolesGuard } from './common/guards/roles.guard'
 
 import { AuthModule } from './modules/auth/auth.module'
 import { UsersModule } from './modules/users/users.module'
@@ -17,24 +21,20 @@ import { EventsModule } from './modules/events/events.module'
 import { AnalyticsModule } from './modules/analytics/analytics.module'
 import { NotificationsModule } from './modules/notifications/notifications.module'
 import { AdminModule } from './modules/admin/admin.module'
-
-import { APP_GUARD, Reflector } from '@nestjs/core'
-import { RolesGuard } from './common/guards/roles.guard'
+import { TracksModule } from './modules/music/tracks/tracks.module'
+import appConfig, { databaseConfig } from './config/database.config'
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      validationSchema: Joi.object({
-        DATABASE_HOST: Joi.string().default('localhost'),
-        DATABASE_PORT: Joi.number().default(5432),
-        DATABASE_USERNAME: Joi.string().required(),
-        DATABASE_PASSWORD: Joi.string().required(),
-        DATABASE_NAME: Joi.string().required(),
-        NODE_ENV: Joi.string()
-          .valid('development', 'production', 'test')
-          .default('development'),
-      }),
+      load: [appConfig, databaseConfig],
+      validationSchema,
+      validationOptions: {
+        allowUnknown: true,
+        abortEarly: true,
+      },
+      envFilePath: [`.env.${process.env.NODE_ENV}`, '.env.local', '.env'],
     }),
 
     TypeOrmModule.forRootAsync({
@@ -42,13 +42,14 @@ import { RolesGuard } from './common/guards/roles.guard'
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get<string>('DATABASE_HOST'),
-        port: configService.get<number>('DATABASE_PORT'),
-        username: configService.get<string>('DATABASE_USERNAME'),
-        password: configService.get<string>('DATABASE_PASSWORD'),
-        database: configService.get<string>('DATABASE_NAME'),
+        host: configService.get<string>('database.host'),
+        port: configService.get<number>('database.port'),
+        username: configService.get<string>('database.username'),
+        password: configService.get<string>('database.password'),
+        database: configService.get<string>('database.database'), 
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: true,
+        synchronize: configService.get<string>('nodeEnv') === 'development',
+        logging: configService.get<string>('nodeEnv') === 'development',
       }),
     }),
 
@@ -63,6 +64,7 @@ import { RolesGuard } from './common/guards/roles.guard'
     AnalyticsModule,
     NotificationsModule,
     AdminModule,
+    TracksModule,
   ],
   controllers: [AppController],
   providers: [

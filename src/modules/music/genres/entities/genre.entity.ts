@@ -19,7 +19,6 @@ import { Album } from '../../albums/entities/album.entity';
 
 @Entity('genres')
 @Tree('closure-table')
-@Index(['slug'], { unique: true })
 @Index(['isActive'])
 @Index(['popularity'])
 export class Genre {
@@ -29,8 +28,8 @@ export class Genre {
   @Column({ length: 100 })
   name: string;
 
+  // Unique index is created by "unique: true", no need for @Index here
   @Column({ length: 150, unique: true })
-  @Index()
   slug: string;
 
   @Column({ type: 'text', nullable: true })
