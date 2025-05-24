@@ -3,6 +3,8 @@ import { Exclude } from "class-transformer"
 import { ArtistRole } from "../enums/artistRole.enum"
 import { VerificationStatus } from "../enums/verificationStatus.enum"
 import { Album } from "src/modules/music/albums/entities/album.entity"
+import { MerchandiseBundle } from "src/modules/merchandise/entities/merchandise-bundle.entity"
+import { Merchandise } from "src/modules/merchandise/entities/merchandise.entity"
 
 @Entity("artists")
 export class Artist {
@@ -83,6 +85,19 @@ export class Artist {
       nullable: false,
     })
     albums: Album;
+
+    @OneToMany(
+    () => MerchandiseBundle,
+    (bundle) => bundle.artist,
+    )
+    merchandiseBundles: MerchandiseBundle[];
+
+
+  @OneToMany(
+    () => Merchandise,
+    (merchandise) => merchandise.artist,
+  )
+  merchandise: Merchandise[]
 
   @Column({ default: false })
   isActive: boolean
