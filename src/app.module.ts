@@ -30,6 +30,7 @@ import { DistributionsModule } from './modules/distributions/distributions.modul
 import { InventoryModule } from './modules/inventory/inventory.module';
 import { I18nModule } from './modules/i18n/i18n.module';
 import { AnalyticsDashboardModule } from './modules/analytics-dashboard/analytics-dashboard.module';
+import { ModerationModule } from './modules/moderation/moderation.module';
 
 @Module({
   imports: [
@@ -79,6 +80,7 @@ import { AnalyticsDashboardModule } from './modules/analytics-dashboard/analytic
     InventoryModule,
     I18nModule,
     AnalyticsDashboardModule,
+    ModerationModule,
   ],
   controllers: [AppController],
   providers: [
