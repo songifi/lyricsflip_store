@@ -31,6 +31,7 @@ import { InventoryModule } from './modules/inventory/inventory.module';
 import { I18nModule } from './modules/i18n/i18n.module';
 import { AnalyticsDashboardModule } from './modules/analytics-dashboard/analytics-dashboard.module';
 import { ModerationModule } from './modules/moderation/moderation.module';
+import { SecurityModule } from './modules/security/security.module';
 
 @Module({
   imports: [
@@ -44,6 +45,13 @@ import { ModerationModule } from './modules/moderation/moderation.module';
       },
       envFilePath: [`.env.${process.env.NODE_ENV}`, '.env.local', '.env'],
     }),
+
+     ThrottlerModule.forRoot([
+      {
+        ttl: 60000, // 1 minute
+        limit: 100, // 100 requests per minute (global fallback)
+      },
+    ]),
 
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
@@ -81,6 +89,7 @@ import { ModerationModule } from './modules/moderation/moderation.module';
     I18nModule,
     AnalyticsDashboardModule,
     ModerationModule,
+    SecurityModule,
   ],
   controllers: [AppController],
   providers: [
