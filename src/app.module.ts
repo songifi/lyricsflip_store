@@ -23,6 +23,7 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
 import { AdminModule } from './modules/admin/admin.module'
 import { TracksModule } from './modules/music/tracks/tracks.module'
 import appConfig, { databaseConfig } from './config/database.config'
+import { BandsModule } from './modules/bands/bands.module';
 
 @Module({
   imports: [
@@ -65,6 +66,7 @@ import appConfig, { databaseConfig } from './config/database.config'
     NotificationsModule,
     AdminModule,
     TracksModule,
+    BandsModule,
   ],
   controllers: [AppController],
   providers: [
