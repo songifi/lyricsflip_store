@@ -36,6 +36,7 @@ import { PerformanceOptimizationModule } from './modules/performance-optimizatio
 import { PodcastModule } from './modules/podcast/podcast.module';
 import { LivestreamModule } from './modules/livestream/livestream.module';
 import { EducationModule } from './modules/education/education.module';
+import { ContestModule } from './modules/contest/contest.module';
 
 @Module({
   imports: [
@@ -98,6 +99,7 @@ import { EducationModule } from './modules/education/education.module';
     PodcastModule,
     LivestreamModule,
     EducationModule,
+    ContestModule,
   ],
   controllers: [AppController],
   providers: [
