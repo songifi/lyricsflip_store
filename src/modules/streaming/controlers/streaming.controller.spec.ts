@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { StreamingController } from './streaming.controller';
+import { StreamingController } from './controlers/streaming.controller';
 import { StreamingService } from './streaming.service';
 
 describe('StreamingController', () => {
