@@ -27,6 +27,7 @@ import { BandsModule } from './modules/bands/bands.module';
 import { VideosModule } from './modules/videos/videos.module';
 import { FundingModule } from './modules/funding/funding.module';
 import { DistributionsModule } from './modules/distributions/distributions.module';
+import { InventoryModule } from './modules/inventory/inventory.module';
 
 @Module({
   imports: [
@@ -73,6 +74,7 @@ import { DistributionsModule } from './modules/distributions/distributions.modul
     VideosModule,
     FundingModule,
     DistributionsModule,
+    InventoryModule,
   ],
   controllers: [AppController],
   providers: [
