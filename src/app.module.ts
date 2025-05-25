@@ -37,6 +37,7 @@ import { PodcastModule } from './modules/podcast/podcast.module';
 import { LivestreamModule } from './modules/livestream/livestream.module';
 import { EducationModule } from './modules/education/education.module';
 import { ContestModule } from './modules/contest/contest.module';
+import { GearModule } from './modules/gear/gear.module';
 
 @Module({
   imports: [
@@ -100,6 +101,7 @@ import { ContestModule } from './modules/contest/contest.module';
     LivestreamModule,
     EducationModule,
     ContestModule,
+    GearModule,
   ],
   controllers: [AppController],
   providers: [
