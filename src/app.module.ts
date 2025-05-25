@@ -26,6 +26,7 @@ import appConfig, { databaseConfig } from './config/database.config'
 import { BandsModule } from './modules/bands/bands.module';
 import { VideosModule } from './modules/videos/videos.module';
 import { FundingModule } from './modules/funding/funding.module';
+import { DistributionsModule } from './modules/distributions/distributions.module';
 
 @Module({
   imports: [
@@ -71,6 +72,7 @@ import { FundingModule } from './modules/funding/funding.module';
     BandsModule,
     VideosModule,
     FundingModule,
+    DistributionsModule,
   ],
   controllers: [AppController],
   providers: [
