@@ -28,6 +28,7 @@ import { VideosModule } from './modules/videos/videos.module';
 import { FundingModule } from './modules/funding/funding.module';
 import { DistributionsModule } from './modules/distributions/distributions.module';
 import { InventoryModule } from './modules/inventory/inventory.module';
+import { I18nModule } from './modules/i18n/i18n.module';
 
 @Module({
   imports: [
@@ -75,6 +76,7 @@ import { InventoryModule } from './modules/inventory/inventory.module';
     FundingModule,
     DistributionsModule,
     InventoryModule,
+    I18nModule,
   ],
   controllers: [AppController],
   providers: [
