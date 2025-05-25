@@ -32,6 +32,7 @@ import { I18nModule } from './modules/i18n/i18n.module';
 import { AnalyticsDashboardModule } from './modules/analytics-dashboard/analytics-dashboard.module';
 import { ModerationModule } from './modules/moderation/moderation.module';
 import { SecurityModule } from './modules/security/security.module';
+import { PerformanceOptimizationModule } from './modules/performance-optimization/performance-optimization.module';
 
 @Module({
   imports: [
@@ -90,6 +91,7 @@ import { SecurityModule } from './modules/security/security.module';
     AnalyticsDashboardModule,
     ModerationModule,
     SecurityModule,
+    PerformanceOptimizationModule,
   ],
   controllers: [AppController],
   providers: [
