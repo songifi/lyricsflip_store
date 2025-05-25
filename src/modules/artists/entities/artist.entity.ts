@@ -99,6 +99,9 @@ export class Artist {
   )
   merchandise: Merchandise[]
 
+  @OneToMany(() => Video, (video) => video.artist)
+  videos: Video[];  
+
   @Column({ default: false })
   isActive: boolean
 

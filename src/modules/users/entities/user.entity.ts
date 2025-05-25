@@ -8,4 +8,8 @@ export class User {
 
   @OneToMany(() => Track, (track) => track.artistId)
   tracks: Track[];
+
+  @OneToMany(() => Video, video => video.user)
+  uploadedVideos: Video[];
+
 }
