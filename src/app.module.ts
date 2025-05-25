@@ -33,6 +33,7 @@ import { AnalyticsDashboardModule } from './modules/analytics-dashboard/analytic
 import { ModerationModule } from './modules/moderation/moderation.module';
 import { SecurityModule } from './modules/security/security.module';
 import { PerformanceOptimizationModule } from './modules/performance-optimization/performance-optimization.module';
+import { PodcastModule } from './modules/podcast/podcast.module';
 
 @Module({
   imports: [
@@ -92,6 +93,7 @@ import { PerformanceOptimizationModule } from './modules/performance-optimizatio
     ModerationModule,
     SecurityModule,
     PerformanceOptimizationModule,
+    PodcastModule,
   ],
   controllers: [AppController],
   providers: [
