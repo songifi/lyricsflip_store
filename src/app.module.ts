@@ -29,6 +29,7 @@ import { FundingModule } from './modules/funding/funding.module';
 import { DistributionsModule } from './modules/distributions/distributions.module';
 import { InventoryModule } from './modules/inventory/inventory.module';
 import { I18nModule } from './modules/i18n/i18n.module';
+import { AnalyticsDashboardModule } from './modules/analytics-dashboard/analytics-dashboard.module';
 
 @Module({
   imports: [
@@ -77,6 +78,7 @@ import { I18nModule } from './modules/i18n/i18n.module';
     DistributionsModule,
     InventoryModule,
     I18nModule,
+    AnalyticsDashboardModule,
   ],
   controllers: [AppController],
   providers: [
