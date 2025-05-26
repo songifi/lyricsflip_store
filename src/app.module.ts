@@ -38,6 +38,7 @@ import { LivestreamModule } from './modules/livestream/livestream.module';
 import { EducationModule } from './modules/education/education.module';
 import { ContestModule } from './modules/contest/contest.module';
 import { GearModule } from './modules/gear/gear.module';
+import { CollaborationModule } from './modules/collaboration/collaboration.module';
 
 @Module({
   imports: [
@@ -102,6 +103,7 @@ import { GearModule } from './modules/gear/gear.module';
     EducationModule,
     ContestModule,
     GearModule,
+    CollaborationModule,
   ],
   controllers: [AppController],
   providers: [
