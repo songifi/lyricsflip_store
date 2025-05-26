@@ -1,0 +1,8 @@
+@Post() createVenue()
+@Post(':id/book') bookVenue()
+@Post(':id/pricing') setVenuePricing()
+@Post(':id/specs') setTechnicalSpecs()
+@Post(':id/promotions') createPromotion()
+@Post(':id/analytics') trackAnalytics()
+@Post(':id/partnership') addPartner()
+@Get(':id/report') getFullVenueProfile()
