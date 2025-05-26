@@ -39,6 +39,7 @@ import { EducationModule } from './modules/education/education.module';
 import { ContestModule } from './modules/contest/contest.module';
 import { GearModule } from './modules/gear/gear.module';
 import { CollaborationModule } from './modules/collaboration/collaboration.module';
+import { RecordLabelModule } from './modules/record-label/record-label.module';
 
 @Module({
   imports: [
@@ -104,6 +105,7 @@ import { CollaborationModule } from './modules/collaboration/collaboration.modul
     ContestModule,
     GearModule,
     CollaborationModule,
+    RecordLabelModule,
   ],
   controllers: [AppController],
   providers: [
