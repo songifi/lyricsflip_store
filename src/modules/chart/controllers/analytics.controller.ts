@@ -12,3 +12,4 @@ export class AnalyticsController {
     return this.analyticsService.getDemographics(metric, new Date(date));
   }
 }
+

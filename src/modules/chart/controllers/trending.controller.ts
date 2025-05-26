@@ -7,3 +7,4 @@ export class TrendingController {
     return this.service.getTrendingTracks(metric);
   }
 }
+
