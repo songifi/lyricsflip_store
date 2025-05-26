@@ -45,6 +45,7 @@ import { SyncModule } from './modules/sync/sync.module';
 import { WellnessModule } from './modules/wellness/wellness.module';
 import { FestivalsModule } from './modules/festivals/festivals.module';
 import { ArchiveModule } from './modules/archive/archive.module';
+import { RecomendationsModule } from './modules/recomendations/recomendations.module';
 
 @Module({
   imports: [
@@ -116,6 +117,7 @@ import { ArchiveModule } from './modules/archive/archive.module';
     WellnessModule,
     FestivalsModule,
     ArchiveModule,
+    RecomendationsModule,
   ],
   controllers: [AppController],
   providers: [
