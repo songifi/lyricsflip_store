@@ -41,6 +41,7 @@ import { GearModule } from './modules/gear/gear.module';
 import { CollaborationModule } from './modules/collaboration/collaboration.module';
 import { RecordLabelModule } from './modules/record-label/record-label.module';
 import { RightsModule } from './modules/rights/rights.module';
+import { SyncModule } from './modules/sync/sync.module';
 
 @Module({
   imports: [
@@ -108,6 +109,7 @@ import { RightsModule } from './modules/rights/rights.module';
     CollaborationModule,
     RecordLabelModule,
     RightsModule,
+    SyncModule,
   ],
   controllers: [AppController],
   providers: [
