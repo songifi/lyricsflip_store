@@ -44,6 +44,7 @@ import { RightsModule } from './modules/rights/rights.module';
 import { SyncModule } from './modules/sync/sync.module';
 import { WellnessModule } from './modules/wellness/wellness.module';
 import { FestivalsModule } from './modules/festivals/festivals.module';
+import { ArchiveModule } from './modules/archive/archive.module';
 
 @Module({
   imports: [
@@ -114,6 +115,7 @@ import { FestivalsModule } from './modules/festivals/festivals.module';
     SyncModule,
     WellnessModule,
     FestivalsModule,
+    ArchiveModule,
   ],
   controllers: [AppController],
   providers: [
