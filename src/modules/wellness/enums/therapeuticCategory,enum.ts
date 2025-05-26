@@ -1,0 +1,16 @@
+export enum TherapeuticCategory {
+  ANXIETY_RELIEF = "anxiety_relief",
+  DEPRESSION_SUPPORT = "depression_support",
+  STRESS_REDUCTION = "stress_reduction",
+  SLEEP_IMPROVEMENT = "sleep_improvement",
+  FOCUS_ENHANCEMENT = "focus_enhancement",
+  PAIN_MANAGEMENT = "pain_management",
+  EMOTIONAL_HEALING = "emotional_healing",
+  TRAUMA_RECOVERY = "trauma_recovery",
+  ADDICTION_RECOVERY = "addiction_recovery",
+  MINDFULNESS = "mindfulness",
+  MEDITATION = "meditation",
+  BREATHWORK = "breathwork",
+  BINAURAL_BEATS = "binaural_beats",
+  FREQUENCY_THERAPY = "frequency_therapy",
+}
