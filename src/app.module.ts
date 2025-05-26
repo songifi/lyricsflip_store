@@ -42,6 +42,7 @@ import { CollaborationModule } from './modules/collaboration/collaboration.modul
 import { RecordLabelModule } from './modules/record-label/record-label.module';
 import { RightsModule } from './modules/rights/rights.module';
 import { SyncModule } from './modules/sync/sync.module';
+import { WellnessModule } from './modules/wellness/wellness.module';
 
 @Module({
   imports: [
@@ -110,6 +111,7 @@ import { SyncModule } from './modules/sync/sync.module';
     RecordLabelModule,
     RightsModule,
     SyncModule,
+    WellnessModule,
   ],
   controllers: [AppController],
   providers: [
