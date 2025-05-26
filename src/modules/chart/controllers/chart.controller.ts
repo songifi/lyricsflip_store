@@ -22,3 +22,4 @@ export class ChartController {
     return this.chartService.getChartHistory(trackId);
   }
 }
+
